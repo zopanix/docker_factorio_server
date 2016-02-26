@@ -6,13 +6,13 @@ WORKDIR /opt
 
 COPY ./factorio.tar.gz /opt
 
-RUN tar -xzf factorio.tar.gz
+COPY ./smart_launch.sh /opt
 
-RUN ["/opt/factorio/bin/x64/factorio", "--create", "save.zip"]
+RUN tar -xzf factorio.tar.gz
 
 WORKDIR /opt/factorio
 
-CMD ["/opt/factorio/bin/x64/factorio", "--disallow-commands", "--start-server", "save.zip"]
+CMD ["./smart_launch.sh"]
 
 EXPOSE 34197/udp
 
