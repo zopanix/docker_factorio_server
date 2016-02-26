@@ -9,7 +9,7 @@ else
   echo "###"
   echo "# Creating a new map [save.zip]"
   echo "###"
-  opt/factorio/bin/x64/factorio --create save.zip
+  /opt/factorio/bin/x64/factorio --create save.zip
   echo "###"
   echo "# New map created [save.zip]"
   echo "###"
