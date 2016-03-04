@@ -6,12 +6,15 @@ WORKDIR /opt
 
 COPY ./smart_launch.sh /opt
 
-RUN apt-get update && \
-    apt-get install -y wget && \
-    wget --no-check-certificate -o factorio.tar.gz https://www.factorio.com/get-download/0.12.25/headless/linux64 &&\
-    tar -xf factorio.tar.gz && \
-    rm -rf factorio.tar.gz && \
-    apt-purge-build &&\
+RUN echo "# Installing WGET" && \
+    apt-get update && \
+    apt-get install -y curl && \
+    echo "# Downloading and unzipping factorio" && \
+    curl -L -k https://www.factorio.com/get-download/0.12.25/headless/linux64 | tar -xzf - && \
+    echo "# Cleaning" && \
+    apt-get remove -y --purge curl  && \
+    apt-get autoremove --purge && \
+    apt-purge-build && \
     apt-clean
 
 
