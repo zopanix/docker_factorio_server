@@ -9,7 +9,7 @@ COPY ./smart_launch.sh /opt
 RUN apt-get update && \
     apt-get install -y wget && \
     wget --no-check-certificate -o factorio.tar.gz https://www.factorio.com/get-download/0.12.25/headless/linux64 &&\
-    tar -xzf factorio.tar.gz && \
+    tar -xf factorio.tar.gz && \
     rm -rf factorio.tar.gz && \
     apt-purge-build &&\
     apt-clean
