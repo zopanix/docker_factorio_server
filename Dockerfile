@@ -14,7 +14,6 @@ RUN echo "# Installing WGET" && \
     echo "# Cleaning" && \
     apt-get remove -y --purge curl  && \
     apt-get autoremove -y --purge && \
-    apt-clean
 
 
 CMD ["./smart_launch.sh"]
