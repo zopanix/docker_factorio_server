@@ -14,7 +14,6 @@ RUN echo "# Installing WGET" && \
     echo "# Cleaning" && \
     apt-get remove -y --purge curl  && \
     apt-get autoremove -y --purge && \
-    apt-purge-build && \
     apt-clean
 
 
