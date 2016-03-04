@@ -1,3 +1,25 @@
-# docker_factorio_server
-Factorio Server in Docker
-## Hoping this works
+Factorio
+===== 
+Factorio Server in docker
+
+How to use ?
+-----
+3 ways of launching it :
+* Without map persistence
+* With map persistence
+* With existing map
+
+### Without map persistence
+Here is the command :
+`docker run -d -p [PORT]:34197/udp factorio`
+This will generate a new random map with default settings.
+If you're going to launch it on your local machine, don't use the port 34197, take another one at random.
+
+### With map persistence
+`docker run -d -v [PATH]:/opt/factorio/saves -p {port}:34197/udp factorio`
+This will generate a new random map with default settings and save it onto the volume.
+Replace [PATH] with a path to a folder on the host where the map will be saved.
+
+### With existing map
+`docker run -d -v [PATH]:/opt/factorio/saves -p {port}:34197/udp factorio`
+It's the same as above, so if there is a file named save.zip in the [PATH] folder, it will use that map as default.
