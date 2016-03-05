@@ -13,8 +13,9 @@ RUN echo "# Installing WGET" && \
     curl -L -k https://www.factorio.com/get-download/0.12.25/headless/linux64 | tar -xzf - && \
     echo "# Cleaning" && \
     apt-get remove -y --purge curl  && \
-    apt-get autoremove -y --purge 
-
+    apt-get autoremove -y --purge && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 CMD ["./smart_launch.sh"]
 
