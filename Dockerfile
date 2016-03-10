@@ -6,7 +6,13 @@ WORKDIR /opt
 
 COPY ./smart_launch.sh /opt
 
-RUN echo "# Installing WGET" && \
+CMD ["./smart_launch.sh"]
+
+EXPOSE 34197/udp
+
+VOLUME "/opt/factorio/saves"
+
+RUN echo "# Installing curl" && \
     apt-get update && \
     apt-get install -y curl && \
     echo "# Downloading and unzipping factorio" && \
@@ -16,10 +22,3 @@ RUN echo "# Installing WGET" && \
     apt-get autoremove -y --purge && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-CMD ["./smart_launch.sh"]
-
-EXPOSE 34197/udp
-
-VOLUME "/opt/factorio/saves"
-
