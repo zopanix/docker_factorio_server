@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM debian:latest
 
 MAINTAINER zopanix@gmail.com
 
