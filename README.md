@@ -1,6 +1,11 @@
 Factorio
 ===== 
 Factorio Server in docker
+
+Current Version
+-----
+0.12.29
+
 Versions
 -----
 I'm keeping the image up to date. If you need to use an older version, checkout out the different tags.
