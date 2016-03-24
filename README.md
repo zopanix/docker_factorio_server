@@ -12,7 +12,7 @@ Current Version
 Automatically takes latest save or autosave. when restarting the container.
 Versions
 -----
-I'm keeping the image up to date. If you need to use an older version, checkout out the different tags.
+I'm keeping the image up to date. If you need to use an older version, checkout out the different [tags](https://hub.docker.com/r/zopanix/factorio/tags/).
 
 How to use ?
 -----
