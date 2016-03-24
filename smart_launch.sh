@@ -5,6 +5,10 @@ then
   echo "###"
   echo "# Using existing map [save.zip]"
   echo "###"
+  echo "###"
+  echo "# Finding latest map"
+  echo "###"
+  $last_save=ls /opt/factorio/saves -lt | grep save |head -1 |awk '{print $(NF)}'
 else
   echo "###"
   echo "# Creating a new map [save.zip]"
@@ -18,4 +22,4 @@ fi
 echo "###"
 echo "# Launching Game"
 echo "###"
-exec /opt/factorio/bin/x64/factorio --disallow-commands --start-server save.zip
+exec /opt/factorio/bin/x64/factorio --disallow-commands --start-server $last_save

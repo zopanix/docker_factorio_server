@@ -9,7 +9,7 @@ Current Version
 #### Factorio
 [factorio's site](http://www.factorio.com)
 #### Docker image
-
+Automatically takes latest save or autosave. when restarting the container.
 Versions
 -----
 I'm keeping the image up to date. If you need to use an older version, checkout out the different tags.
