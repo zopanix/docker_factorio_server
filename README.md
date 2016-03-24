@@ -9,7 +9,7 @@ Current Version
 #### Factorio
 [factorio's site](http://www.factorio.com)
 #### Docker image
-Automatically takes latest save or autosave. when restarting the container.
+* Automatically takes latest save or autosave. when restarting the container.
 Versions
 -----
 I'm keeping the image up to date. If you need to use an older version, checkout out the different [tags](https://hub.docker.com/r/zopanix/factorio/tags/).
@@ -34,4 +34,9 @@ Replace [PATH] with a path to a folder on the host where the map will be saved.
 
 ### With existing map
 `docker run -d -v [PATH]:/opt/factorio/saves -p [PORT]:34197/udp factorio`
-It's the same as above, so if there is a file named save.zip in the [PATH] folder, it will use that map as default.
+It's the same as above, it takes the last modified file which contains the word save in the filename as current save when booting the server. This allows when upgrading the container to take the last save, you don't have to rename the last autosave as save.zip
+
+ToDo's :
+-----
+* Adding possibility to add a mod volume
+* Adding possibility to change the number of autosave
