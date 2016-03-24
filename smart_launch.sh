@@ -8,7 +8,7 @@ then
   echo "###"
   echo "# Finding latest map"
   echo "###"
-  $last_save=ls /opt/factorio/saves -lt | grep save |head -1 |awk '{print $(NF)}'
+  last_save=$(ls /opt/factorio/saves -lt | grep save |head -1 |awk '{print $(NF)}')
 else
   echo "###"
   echo "# Creating a new map [save.zip]"
