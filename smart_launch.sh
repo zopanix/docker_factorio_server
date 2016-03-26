@@ -14,6 +14,7 @@ else
   echo "# Creating a new map [save.zip]"
   echo "###"
   /opt/factorio/bin/x64/factorio --create save.zip
+  last_save="save.zip"
   echo "###"
   echo "# New map created [save.zip]"
   echo "###"
@@ -22,4 +23,9 @@ fi
 echo "###"
 echo "# Launching Game"
 echo "###"
-exec /opt/factorio/bin/x64/factorio --disallow-commands --start-server $last_save
+exec /opt/factorio/bin/x64/factorio \
+  --disallow-commands \
+  --start-server \
+  $last_save \
+  --autosave-interval ${FACTORIO_AUTOSAVE_INTERVAL} \
+  --autosave-slots ${FACTORIO_AUTOSAVE_SLOTS}
