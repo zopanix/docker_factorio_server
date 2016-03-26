@@ -25,3 +25,5 @@ RUN echo "# Installing curl" && \
 
 ENV FACTORIO_AUTOSAVE_INTERVAL 2
 ENV FACTORIO_AUTOSAVE_SLOTS 3
+
+VOLUME "/opt/facotrio/mods"
