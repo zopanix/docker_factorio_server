@@ -25,7 +25,7 @@ echo "# Launching Game"
 echo "###"
 exec /opt/factorio/bin/x64/factorio \
   --disallow-commands \
-  --start-server \
   --autosave-interval ${FACTORIO_AUTOSAVE_INTERVAL} \
   --autosave-slots ${FACTORIO_AUTOSAVE_SLOTS} \
+  --start-server \
   $last_save 
