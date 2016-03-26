@@ -26,6 +26,6 @@ echo "###"
 exec /opt/factorio/bin/x64/factorio \
   --disallow-commands \
   --start-server \
-  $last_save \
   --autosave-interval ${FACTORIO_AUTOSAVE_INTERVAL} \
-  --autosave-slots ${FACTORIO_AUTOSAVE_SLOTS}
+  --autosave-slots ${FACTORIO_AUTOSAVE_SLOTS} \
+  $last_save 
