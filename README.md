@@ -7,9 +7,10 @@ Current Version
 0.12.29
 ### What's new ?
 #### Factorio
-[factorio's site](http://www.factorio.com)
+See [factorio's site](http://www.factorio.com)
 #### Docker image
 * Automatically takes latest save or autosave. when restarting the container.
+
 Versions
 -----
 I'm keeping the image up to date. If you need to use an older version, checkout out the different [tags](https://hub.docker.com/r/zopanix/factorio/tags/).
