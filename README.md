@@ -48,3 +48,6 @@ Where [NUMBER] is the number of autosave slots.
 As everybody knows about factorio is you can add mods to it. Now you can also do it in this docker image by mounting a volume.
 `docker run -d -v [PATH]:/opt/factorio/mods -p [PORT]:34197/udp zopanix/factorio`
 Where [PATH] is the path to the folder with your mods.
+ToDo's
+-----
+* Add possibility to allow in-game commands ( can be considered as cheating :-p )
