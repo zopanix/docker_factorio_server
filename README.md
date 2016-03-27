@@ -9,6 +9,7 @@ Current Version
 #### Factorio
 See [factorio's site](http://www.factorio.com)
 #### Docker image
+* Added possibility to allow commands in game
 * Automatically takes latest save or autosave. when restarting the container.
 * Added possibility to change default autosave interval
 * Added possibility to change default autosave slots
@@ -83,6 +84,14 @@ docker run -d \
   zopanix/factorio
 ```
 Where [PATH] is the path to the folder with your mods.
+#### Allowing in-game commands
+I've always disabled in-game commands because I think it is like cheating, however, you can enable them by setting the the "FACTORIO_DISSALOW_COMMANDS" to "false".
+```
+docker run -d \
+  --env FACTORIO_DISSALOW_COMMANDS=false \
+  -p [PORT]:34197/udp \
+  zopanix/factorio
+```
 ToDo's
 -----
 * Add possibility to allow in-game commands ( can be considered as cheating :-p )

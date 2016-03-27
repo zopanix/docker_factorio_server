@@ -20,11 +20,17 @@ else
   echo "###"
 fi
 
+# Checking options
+if [ $FACTORIO_DISSALOW_COMMANDS -eq "false"  ]; then
+  disallow_commands=""
+else
+  disallow_commands="--disallow-commands"
+fi
 echo "###"
 echo "# Launching Game"
 echo "###"
 exec /opt/factorio/bin/x64/factorio \
-  --disallow-commands \
+  $disallow_commands \
   --autosave-interval ${FACTORIO_AUTOSAVE_INTERVAL} \
   --autosave-slots ${FACTORIO_AUTOSAVE_SLOTS} \
   --start-server \
