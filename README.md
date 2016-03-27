@@ -101,6 +101,3 @@ docker run -d \
   -p [PORT]:34197/udp \
   zopanix/factorio
 ```
-ToDo's
------
-* Add possibility to allow in-game commands ( can be considered as cheating :-p )
