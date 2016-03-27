@@ -36,7 +36,7 @@ echo "# Launching Game"
 echo "###"
 exec /opt/factorio/bin/x64/factorio \
   $disallow_commands \
-  $no-auto-pause \
+  $no_auto_pause \
   --autosave-interval ${FACTORIO_AUTOSAVE_INTERVAL} \
   --autosave-slots ${FACTORIO_AUTOSAVE_SLOTS} \
   --start-server \
