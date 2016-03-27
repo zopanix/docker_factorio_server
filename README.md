@@ -101,3 +101,5 @@ docker run -d \
   -p [PORT]:34197/udp \
   zopanix/factorio
 ```
+### ToDo's
+* Add cutom savename for people with a lot of saves
