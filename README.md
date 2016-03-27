@@ -28,8 +28,9 @@ docker run -d \
   -p [PORT]:34197/udp \
   zopanix/factorio
 ```
-Where [PATH] is a folder where you'll put your saves, if there already is a save in it with the string "save", that one will be taken by default, otherwize, a new one will be made.
-Where [PORT] is the port number you choose, if you're going to launch it on your local machine, don't use the port 34197, take another one at random.
+* Where [PATH] is a folder where you'll put your saves, if there already is a save in it with the string "save", that one will be taken by default, otherwize, a new one will be made.
+* Where [PORT] is the port number you choose, if you're going to launch it on your local machine, don't use the port 34197, take another one at random.
+
 ### Advanced usage
 #### Without map persistence
 ```
