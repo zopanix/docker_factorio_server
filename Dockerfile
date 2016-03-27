@@ -12,6 +12,12 @@ EXPOSE 34197/udp
 
 VOLUME "/opt/factorio/saves"
 
+VOLUME "/opt/factorio/mods"
+
+ENV FACTORIO_AUTOSAVE_INTERVAL 2
+
+ENV FACTORIO_AUTOSAVE_SLOTS 3
+
 RUN echo "# Installing curl" && \
     apt-get update && \
     apt-get install -y curl && \
@@ -22,8 +28,3 @@ RUN echo "# Installing curl" && \
     apt-get autoremove -y --purge && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-ENV FACTORIO_AUTOSAVE_INTERVAL 2
-ENV FACTORIO_AUTOSAVE_SLOTS 3
-
-VOLUME "/opt/factorio/mods"
