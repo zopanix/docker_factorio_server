@@ -30,7 +30,7 @@ if [ "$FACTORIO_NO_AUTO_PAUSE" == true ]; then
   no_auto_pause="--no-auto-pause"
 else
   no_auto_pause=""
-fi"
+fi
 echo "###"
 echo "# Launching Game"
 echo "###"
