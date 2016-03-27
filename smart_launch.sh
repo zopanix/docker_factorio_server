@@ -21,7 +21,7 @@ else
 fi
 
 # Checking options
-if [ $FACTORIO_DISSALOW_COMMANDS -eq "false"  ]; then
+if [ "$FACTORIO_DISSALOW_COMMANDS" -eq "false"  ]; then
   disallow_commands=""
 else
   disallow_commands="--disallow-commands"
