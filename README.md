@@ -9,6 +9,7 @@ Current Version
 #### Factorio
 See [factorio's site](http://www.factorio.com)
 #### Docker image
+* Added possibility to add the no-auto-pause option
 * Added possibility to allow commands in game
 * Automatically takes latest save or autosave. when restarting the container.
 * Added possibility to change default autosave interval
@@ -85,10 +86,18 @@ docker run -d \
 ```
 Where [PATH] is the path to the folder with your mods.
 #### Allowing in-game commands
-I've always disabled in-game commands because I think it is like cheating, however, you can enable them by setting the the "FACTORIO_DISSALOW_COMMANDS" to "false".
+I've always disabled in-game commands because I think it is like cheating, however, you can enable them by setting the the "FACTORIO_DISSALOW_COMMANDS" variable to "false".
 ```
 docker run -d \
   --env FACTORIO_DISSALOW_COMMANDS=false \
+  -p [PORT]:34197/udp \
+  zopanix/factorio
+```
+#### Activating no-auto-pause in the game when no one is on the server
+I do not recommend this feature, bud it can make the game more difficult if you're up for a challenge :-). Just set the "FACOTIO_NO_AUTO_PAUSE" variable to "true".
+```
+docker run -d \
+  --env FACOTIO_NO_AUTO_PAUSE=true \
   -p [PORT]:34197/udp \
   zopanix/factorio
 ```

@@ -26,11 +26,17 @@ if [ "$FACTORIO_DISSALOW_COMMANDS" == false  ]; then
 else
   disallow_commands="--disallow-commands"
 fi
+if [ "$FACTORIO_NO_AUTO_PAUSE" == true ]; then
+  no_auto_pause="--no-auto-pause"
+else
+  no_auto_pause=""
+fi"
 echo "###"
 echo "# Launching Game"
 echo "###"
 exec /opt/factorio/bin/x64/factorio \
   $disallow_commands \
+  $no-auto-pause \
   --autosave-interval ${FACTORIO_AUTOSAVE_INTERVAL} \
   --autosave-slots ${FACTORIO_AUTOSAVE_SLOTS} \
   --start-server \
