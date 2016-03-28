@@ -18,6 +18,10 @@ ENV FACTORIO_AUTOSAVE_INTERVAL 2
 
 ENV FACTORIO_AUTOSAVE_SLOTS 3
 
+ENV FACTORIO_DISSALOW_COMMANDS true
+
+ENV FACOTIO_NO_AUTO_PAUSE false
+
 RUN echo "# Installing curl" && \
     apt-get update && \
     apt-get install -y curl && \
