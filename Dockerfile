@@ -26,7 +26,7 @@ RUN echo "# Installing curl" && \
     apt-get update && \
     apt-get install -y curl && \
     echo "# Downloading and unzipping factorio" && \
-    curl -L -k https://www.factorio.com/get-download/0.12.29/headless/linux64 | tar -xzf - && \
+    curl -L -k https://www.factorio.com/get-download/0.12.30/headless/linux64 | tar -xzf - && \
     echo "# Cleaning" && \
     apt-get remove -y --purge curl  && \
     apt-get autoremove -y --purge && \
