@@ -20,7 +20,7 @@ ENV FACTORIO_AUTOSAVE_SLOTS 3
 
 ENV FACTORIO_DISSALOW_COMMANDS true
 
-ENV FACOTIO_NO_AUTO_PAUSE false
+ENV FACTORIO_NO_AUTO_PAUSE false
 
 RUN echo "# Installing curl" && \
     apt-get update && \

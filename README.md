@@ -94,10 +94,10 @@ docker run -d \
   zopanix/factorio
 ```
 #### Activating no-auto-pause in the game when no one is on the server
-I do not recommend this feature, bud it can make the game more difficult if you're up for a challenge :-). Just set the "FACOTIO_NO_AUTO_PAUSE" variable to "true".
+I do not recommend this feature, bud it can make the game more difficult if you're up for a challenge :-). Just set the "FACTORIO_NO_AUTO_PAUSE" variable to "true".
 ```
 docker run -d \
-  --env FACOTIO_NO_AUTO_PAUSE=true \
+  --env FACTORIO_NO_AUTO_PAUSE=true \
   -p [PORT]:34197/udp \
   zopanix/factorio
 ```
