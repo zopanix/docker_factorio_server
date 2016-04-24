@@ -9,12 +9,9 @@ Current Version
 #### Factorio
 See [factorio's site](http://www.factorio.com)
 #### Docker image
-* Added possibility to add the no-auto-pause option
-* Added possibility to allow commands in game
-* Automatically takes latest save or autosave. when restarting the container.
-* Added possibility to change default autosave interval
-* Added possibility to change default autosave slots
-* Added possibility to mount a mod volume to have your mods in your multiplayer session
+Next feature come from dtandersen's fork:
+* Image based on alpine (makes the image more lightweight)
+* SSL verification when downloading game
 
 Versions
 -----
