@@ -13,8 +13,8 @@ ENV FACTORIO_AUTOSAVE_INTERVAL=2 \
     FACTORIO_AUTOSAVE_SLOTS=3 \
     FACTORIO_DISSALOW_COMMANDS=true \
     FACTORIO_NO_AUTO_PAUSE=false \
-    VERSION=0.12.32 \
-    FACTORIO_SHA1=ce3ebfd819ae335f71f1ac68dbd6b1962bbd1df0
+    VERSION=0.12.33 \
+    FACTORIO_SHA1=6e10e15430cacb41792db22d39681aa6d01f6eec
 
 RUN apk --update add bash curl && \
     curl -sSL --cacert /opt/factorio.crt https://www.factorio.com/get-download/$VERSION/headless/linux64 -o /tmp/factorio_headless_x64_$VERSION.tar.gz && \
