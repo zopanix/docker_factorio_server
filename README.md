@@ -9,10 +9,7 @@ Current Version
 #### Factorio
 See [factorio's site](http://www.factorio.com)
 #### Docker image
-Next feature come from dtandersen's fork:
-* Image based on alpine (makes the image more lightweight)
-* SSL verification when downloading game
-
+* Added latency option (thanks to Alphasite)
 Versions
 -----
 I'm keeping the image up to date. If you need to use an older version, checkout out the different [tags](https://hub.docker.com/r/zopanix/factorio/tags/).
@@ -98,5 +95,16 @@ docker run -d \
   -p [PORT]:34197/udp \
   zopanix/factorio
 ```
+
+#### Change latency option
+I do not know what the real impact is, ut has always worked very well on default, but you can change the latency option in ms.
+```
+docker run -d \
+  --env FACTORIO_LATENCY_MS=[number] \
+  -p [PORT]:34197/udp \
+  zopanix/factorio
+
+```
+If some can explain it, please make a PR :-)
 ### ToDo's
 * Add cutom savename for people with a lot of saves
