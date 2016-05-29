@@ -37,6 +37,7 @@ echo "###"
 exec /opt/factorio/bin/x64/factorio \
   $disallow_commands \
   $no_auto_pause \
+  --latency-ms ${FACTORIO_LATENCY_MS} \
   --autosave-interval ${FACTORIO_AUTOSAVE_INTERVAL} \
   --autosave-slots ${FACTORIO_AUTOSAVE_SLOTS} \
   --start-server \
