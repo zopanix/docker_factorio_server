@@ -105,6 +105,11 @@ docker run -d \
   zopanix/factorio
 
 ```
+
+#### Waiting for ready
+This is a beta feature which has nothing to do with factorio... leave it as it is for the moment. I'm working with some collegues on something new which should work very well and please a lot of people.
+
+More to come
 If some can explain it, please make a PR :-)
 ### ToDo's
 * Add cutom savename for people with a lot of saves

@@ -1,5 +1,13 @@
 #!/bin/bash
-
+# Checking if server is ready
+if [ $FACTORIO_WAITING == true ]
+then
+  until [ -f /opt/factorio/saves/ready ]
+  do
+    echo "# Waiting for backup daemon to be ready"
+    sleep 1
+  done
+fi
 if [ -f /opt/factorio/saves/save.zip ]
 then
   echo "###"
