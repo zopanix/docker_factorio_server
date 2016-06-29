@@ -10,6 +10,7 @@ Current Version
 See [factorio's site](http://www.factorio.com)
 #### Docker image
 * IMPORTANT: Factorio has changed a lot, I've refactored the image
+
 Versions
 -----
 I'm keeping the image up to date. If you need to use an older version, checkout out the different [tags](https://hub.docker.com/r/zopanix/factorio/tags/).
