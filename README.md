@@ -9,7 +9,7 @@ Current Version
 #### Factorio
 See [factorio's site](http://www.factorio.com)
 #### Docker image
-* Added latency option (thanks to Alphasite)
+* IMPORTANT: Factorio has changed a lot, I've refactored the image
 Versions
 -----
 I'm keeping the image up to date. If you need to use an older version, checkout out the different [tags](https://hub.docker.com/r/zopanix/factorio/tags/).
@@ -43,15 +43,7 @@ docker run -d \
   zopanix/factorio
 ```
 This will generate a new random map with default settings and save it onto the volume.
-Replace [PATH] with a path to a folder on the host where the map will be saved.
-#### With existing map
-```
-docker run -d \
-  -v [PATH]:/opt/factorio/saves \
-  -p [PORT]:34197/udp \
-  zopanix/factorio
-```
-It's the same as above, it takes the last modified file which contains the word save in the filename as current save when booting the server. This allows when upgrading the container to take the last save, you don't have to rename the last autosave as save.zip
+Replace [PATH] with a path to a folder on the host where the map will be saved. If existing saves exist it will take the latest one.
 #### Autosave interval
 You can set the autosave interval. By default it is set at 2 minutes bud you can change it by launching the container with the "FACTORIO_AUTOSAVE_INTERVAL" variable to whatever suits you best.
 ```
@@ -80,10 +72,10 @@ docker run -d \
 ```
 Where [PATH] is the path to the folder with your mods.
 #### Allowing in-game commands
-I've always disabled in-game commands because I think it is like cheating, however, you can enable them by setting the the "FACTORIO_DISSALOW_COMMANDS" variable to "false".
+I've always disabled in-game commands because I think it is like cheating, however, you can enable them by setting the the "FACTORIO_ALLOW_COMMANDS" variable to "true".
 ```
 docker run -d \
-  --env FACTORIO_DISSALOW_COMMANDS=false \
+  --env FACTORIO_ALLOW_COMMANDS=true \
   -p [PORT]:34197/udp \
   zopanix/factorio
 ```
@@ -105,11 +97,37 @@ docker run -d \
   zopanix/factorio
 
 ```
+#### Factorio Mode
+I don't know what it is, possibilities are : heavy, complete or none (don't do anything...)
+```
+docker run -d \
+  --env FACTORIO_MODE=[MODE] \
+  -p [PORT]:34197/udp \
+  zopanix/factorio
+
+```
+
+#### Factorio RCON Console Port
+This allows you to expose a RCON Console
+```
+docker run -d \
+  -p [PORT]:34197/udp \
+  -p [PORT_RCON]:27015/tcp \
+  zopanix/factorio
+```
+Where PORT_RCON is the port you want to use.
+By default a random password is set bud ... see below
+
+### Factorio RCON Console Password
+This allows you to set a password for RCON (if not specified, it will be random)
+```
+docker run -d \
+  --env FACTORIO_RCON_PASSWORD=[PASSWORD] \
+  -p [PORT]:34197/udp \
+  zopanix/factorio
+```
 
 #### Waiting for ready
 This is a beta feature which has nothing to do with factorio... leave it as it is for the moment. I'm working with some collegues on something new which should work very well and please a lot of people.
 
 More to come
-If some can explain it, please make a PR :-)
-### ToDo's
-* Add cutom savename for people with a lot of saves
