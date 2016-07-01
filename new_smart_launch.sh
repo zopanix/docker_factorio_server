@@ -1,5 +1,15 @@
 #!/bin/bash
-
+echo '      ___         ___           ___                       ___           ___                       ___     '
+echo '     /  /\       /  /\         /  /\          ___        /  /\         /  /\        ___          /  /\    '
+echo '    /  /:/_     /  /::\       /  /:/         /  /\      /  /::\       /  /::\      /  /\        /  /::\   '
+echo '   /  /:/ /\   /  /:/\:\     /  /:/         /  /:/     /  /:/\:\     /  /:/\:\    /  /:/       /  /:/\:\  '
+echo '  /  /:/ /:/  /  /:/~/::\   /  /:/  ___    /  /:/     /  /:/  \:\   /  /:/~/:/   /__/::\      /  /:/  \:\ '
+echo ' /__/:/ /:/  /__/:/ /:/\:\ /__/:/  /  /\  /  /::\    /__/:/ \__\:\ /__/:/ /:/___ \__\/\:\__  /__/:/ \__\:\'
+echo ' \  \:\/:/   \  \:\/:/__\/ \  \:\ /  /:/ /__/:/\:\   \  \:\ /  /:/ \  \:\/:::::/    \  \:\/\ \  \:\ /  /:/'
+echo '  \  \::/     \  \::/       \  \:\  /:/  \__\/  \:\   \  \:\  /:/   \  \::/~~~~      \__\::/  \  \:\  /:/ '
+echo '   \  \:\      \  \:\        \  \:\/:/        \  \:\   \  \:\/:/     \  \:\          /__/:/    \  \:\/:/  '
+echo '    \  \:\      \  \:\        \  \::/          \__\/    \  \::/       \  \:\         \__\/      \  \::/   '
+echo '     \__\/       \__\/         \__\/                     \__\/         \__\/                     \__\/    '
 # Checking if server is ready 
 if [ $FACTORIO_WAITING == true ] 
 then 
@@ -45,6 +55,8 @@ then
   echo "###"
 fi
 factorio_command="$factorio_command --rcon-password $FACTORIO_RCON_PASSWORD"
+# TODO Adding this because of bug, will need to be removed once bug in factorio is fixed
+cd /opt/factorio/saves
 # Handling save settings
 save_dir="/opt/factorio/saves"
 if [ -z $FACTORIO_SAVE ]
@@ -67,7 +79,6 @@ fi
 echo "###"
 echo "# Launching Game"
 echo "###"
-echo "$factorio_command"
+# Closing stdin
 exec 0<&-
 exec $factorio_command
-
