@@ -4,12 +4,11 @@ Factorio Server in docker
 
 Current Version
 -----
-0.13.5
+0.13.4
 ### What's new ?
 #### Factorio
 See [factorio's site](http://www.factorio.com)
 #### Docker image
-* Refactoring of docker image, will be a bit smaller
 * IMPORTANT: Factorio has changed a lot, I've refactored the image
 
 Versions
