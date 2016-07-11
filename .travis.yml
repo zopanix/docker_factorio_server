@@ -1,0 +1,24 @@
+services: docker
+env:
+  DOCKER_COMPOSE_VERSION: 1.6.2
+before_install:
+  # Upgrade docker/docker-compose versions so we can use v2 of the Dockerfile format
+  - docker -v
+  - sudo apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install docker-engine=1.10.3-0~trusty
+  - docker -v
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m`" > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  # set env vars in the build settings to interact with repositories
+  # see https://docs.travis-ci.com/user/environment-variables/#Defining-Variables-in-Repository-Settings
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+script:
+  - docker build -t "${DOCKER_REPO}:${TRAVIS_TAG}" .
+deploy:
+  provider: script
+  api_key: "$GITHUB_API_TOKEN"
+  script: docker push "${DOCKER_REPO}:${TRAVIS_TAG}"
+  skip_cleanup: false
+  on:
+    tags: true
