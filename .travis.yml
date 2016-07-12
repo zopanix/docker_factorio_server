@@ -1,0 +1,13 @@
+services: docker
+before_install:
+  # set env vars in the build settings to interact with repositories
+  # see https://docs.travis-ci.com/user/environment-variables/#Defining-Variables-in-Repository-Settings
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+script:
+  - docker build -t "zopanix/factorio:${TRAVIS_TAG}" .
+deploy:
+  provider: script
+  script: docker push "zopanix/factorio:${TRAVIS_TAG}"
+  skip_cleanup: false
+  on:
+    tags: true
