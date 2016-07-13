@@ -107,6 +107,15 @@ docker run -d \
   zopanix/factorio
 
 ```
+#### Factorio server-settings.json
+If you want to use the supplied server-settings.json file to set additional options.
+```
+docker run -d \
+  --env FACTORIO_SERVER_SETTINGS_JSON=true \
+  -p [PORT]:34197/udp \
+  zopanix/factorio
+
+```
 
 #### Factorio RCON Console Port
 This allows you to expose a RCON Console

@@ -38,6 +38,11 @@ if [ "$FACTORIO_NO_AUTO_PAUSE" == true ]
 then
 factorio_command="$factorio_command --no-auto-pause"
 fi
+# Setting server-settings.json
+if [ "$FACTORIO_SERVER_SETTINGS_JSON" == true ]
+then
+factorio_command="$factorio_command --server-settings /opt/server-settings.json"
+fi
 # Setting latency-ms option
 factorio_command="$factorio_command --latency-ms $FACTORIO_LATENCY_MS"
 # Setting autosave-interval option
