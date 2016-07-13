@@ -39,9 +39,10 @@ then
 factorio_command="$factorio_command --no-auto-pause"
 fi
 # Setting server-settings.json
-if [ "$FACTORIO_SERVER_SETTINGS_JSON" == true ]
+if [ -n "$FACTORIO_GAME_PASSWORD" ]
 then
 factorio_command="$factorio_command --server-settings /opt/server-settings.json"
+sed "s/sometemppassword/$FACTORIO_GAME_PASSWORD/g" /opt/server-settings.json > tmpfile; mv tmpfile /opt/server-settings.json
 fi
 # Setting latency-ms option
 factorio_command="$factorio_command --latency-ms $FACTORIO_LATENCY_MS"

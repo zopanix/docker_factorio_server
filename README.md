@@ -107,11 +107,12 @@ docker run -d \
   zopanix/factorio
 
 ```
-#### Factorio server-settings.json
-If you want to use the supplied server-settings.json file to set additional options.
+#### Factorio Server Password
+Allows you to set a server password.
+Be aware, this also sets the default settings located in server-settings.json.
 ```
 docker run -d \
-  --env FACTORIO_SERVER_SETTINGS_JSON=true \
+  --env FACTORIO_GAME_PASSWORD=[SERVER_PASSWORD] \
   -p [PORT]:34197/udp \
   zopanix/factorio
 

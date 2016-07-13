@@ -16,7 +16,7 @@
   "_comment_token": "Authentication token. May be used instead of 'password' above.",
   "token": "",
 
-  "game_password": "somepassword",
+  "game_password": "sometemppassword",
 
   "_comment_verify_user_identity": "When set to true, the server will only allow clients that have a valid Factorio.com account",
   "verify_user_identity": false

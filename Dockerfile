@@ -19,7 +19,7 @@ ENV FACTORIO_AUTOSAVE_INTERVAL=2 \
     FACTORIO_SHA1=fd835ec0987a525ddc92acb003d9c75745261bb2 \
     FACTORIO_WAITING=false \
     FACTORIO_MODE=normal \
-    FACTORIO_SERVER_SETTINGS_JSON=false
+    FACTORIO_GAME_PASSWORD=
 
 RUN apk --update add bash curl && \
     curl -sSL --cacert /opt/factorio.crt https://www.factorio.com/get-download/$VERSION/headless/linux64 -o /tmp/factorio_headless_x64_$VERSION.tar.gz && \
