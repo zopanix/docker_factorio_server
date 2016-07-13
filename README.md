@@ -109,7 +109,7 @@ docker run -d \
 ```
 #### Factorio Server Password
 Allows you to set a server password.
-Be aware, this also sets the default settings located in server-settings.json.
+Be aware, this also sets the default settings located in [server-settings.json!](server-settings.json).
 ```
 docker run -d \
   --env FACTORIO_GAME_PASSWORD=[SERVER_PASSWORD] \
