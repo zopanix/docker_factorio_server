@@ -6,6 +6,7 @@ WORKDIR /opt
 
 COPY ./new_smart_launch.sh /opt
 COPY ./factorio.crt /opt
+COPY ./server-settings.json /opt/server-settings.json
 
 VOLUME /opt/factorio/saves /opt/factorio/mods
 
@@ -17,7 +18,8 @@ ENV FACTORIO_AUTOSAVE_INTERVAL=2 \
     VERSION=0.13.8 \
     FACTORIO_SHA1=fd835ec0987a525ddc92acb003d9c75745261bb2 \
     FACTORIO_WAITING=false \
-    FACTORIO_MODE=normal
+    FACTORIO_MODE=normal \
+    FACTORIO_GAME_PASSWORD=
 
 RUN apk --update add bash curl && \
     curl -sSL --cacert /opt/factorio.crt https://www.factorio.com/get-download/$VERSION/headless/linux64 -o /tmp/factorio_headless_x64_$VERSION.tar.gz && \

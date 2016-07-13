@@ -107,6 +107,16 @@ docker run -d \
   zopanix/factorio
 
 ```
+#### Factorio Server Password
+Allows you to set a server password.
+Be aware, this also sets the default settings located in [server-settings.json](server-settings.json).
+```
+docker run -d \
+  --env FACTORIO_GAME_PASSWORD=[SERVER_PASSWORD] \
+  -p [PORT]:34197/udp \
+  zopanix/factorio
+
+```
 
 #### Factorio RCON Console Port
 This allows you to expose a RCON Console
