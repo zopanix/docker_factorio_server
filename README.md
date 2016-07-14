@@ -105,7 +105,79 @@ docker run -d \
   --env FACTORIO_MODE=[MODE] \
   -p [PORT]:34197/udp \
   zopanix/factorio
+```
 
+#### Factorio Server Name
+Set Factorio Server Name
+```
+docker run -d \
+  --env FACTORIO_SERVER_NAME=[NAME]
+  -p [PORT]:34197/udp \
+  zopanix/factorio
+```
+#### Factorio Server Description
+Set Factorio Server Description
+```
+docker run -d \
+  --env FACTORIO_SERVER_DESCRIPTION=[DESCRIPTION]
+  -p [PORT]:34197/udp \
+  zopanix/factorio
+```
+#### Factorio Server Max Players
+Set Factorio Server Max Players count
+```
+docker run -d \
+  --env FACTORIO_SERVER_MAX_PLAYERS=[NUMBER]
+  -p [PORT]:34197/udp \
+  zopanix/factorio
+```
+#### Factorio Server Visibility
+Set Factorio Server Visibility, if set to public, factorio.com User Login and Password or Token are required
+```
+docker run -d \
+  --env FACTORIO_SERVER_VISIBILITY=[hidden,lan,public]
+  -p [PORT]:34197/udp \
+  zopanix/factorio
+```
+#### Factorio Server User Login
+Set factorio.com User Login required for public server visibility
+```
+docker run -d \
+  --env FACTORIO_USER_USERNAME=[USERNAME]
+  -p [PORT]:34197/udp \
+  zopanix/factorio
+```
+#### Factorio Server User Password
+Set factorio.com User Password required for public server visibility
+```
+docker run -d \
+  --env FACTORIO_USER_PASSWORD=[PASSWORD]
+  -p [PORT]:34197/udp \
+  zopanix/factorio
+```
+#### Factorio Server User Token
+Set factorio.com User Token required for public server visibility
+```
+docker run -d \
+  --env FACTORIO_USER_TOKEN=[TOKEN]
+  -p [PORT]:34197/udp \
+  zopanix/factorio
+```
+#### Factorio Server Game Password
+Set Factorio Server Game Password
+```
+docker run -d \
+  --env FACTORIO_SERVER_GAME_PASSWORD=[SERVER-PASSWORD]
+  -p [PORT]:34197/udp \
+  zopanix/factorio
+```
+#### Factorio Server Verify User Identity
+Set Verify User Identity to true to require factorio.com account for user to login
+```
+docker run -d \
+  --env FACTORIO_SERVER_VERIFY_IDENTITY=[false,true]
+  -p [PORT]:34197/udp \
+  zopanix/factorio
 ```
 
 #### Factorio RCON Console Port
