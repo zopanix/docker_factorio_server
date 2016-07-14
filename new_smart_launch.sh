@@ -19,6 +19,32 @@ then
     sleep 1 
   done 
 fi
+# Populate server-settings.json
+SERVER_SETTINGS=/opt/factorio/server-settings.json
+cat << EOF > $SERVER_SETTINGS
+{
+  "name": "$FACTORIO_SERVER_NAME",
+  "description": "$FACTORIO_SERVER_DESCRIPTION",
+  "max_players": "$FACTORIO_SERVER_MAX_PLAYERS",
+
+  "_comment_visibility": ["public: Game will be published on the official Factorio matching server",
+                          "lan: Game will be broadcast on LAN",
+                          "hidden: Game will not be published anywhere"],
+  "visibility": "$FACTORIO_SERVER_VISIBILITY",
+
+  "_comment_credentials": "Your factorio.com login credentials. Required for games with visibility public",
+  "username": "$FACTORIO_USER_USERNAME",
+  "password": "$FACTORIO_USER_PASSWORD",
+
+  "_comment_token": "Authentication token. May be used instead of 'password' above.",
+  "token": "$FACTORIO_USER_TOKEN",
+
+  "game_password": "$FACTORIO_SERVER_GAME_PASSWORD",
+
+  "_comment_verify_user_identity": "When set to true, the server will only allow clients that have a valid Factorio.com account",
+  "verify_user_identity": $FACTORIO_SERVER_VERIFY_IDENTITY
+}
+EOF
 # Setting initial command
 factorio_command="/opt/factorio/bin/x64/factorio"
 # Setting heavy mode option
@@ -37,6 +63,11 @@ factorio_command="$factorio_command --allow-commands $FACTORIO_ALLOW_COMMANDS"
 if [ "$FACTORIO_NO_AUTO_PAUSE" == true ] 
 then
 factorio_command="$factorio_command --no-auto-pause"
+fi
+# Include server-settings.json if one or more variables are populated
+if [ "$FACTORIO_SERVER_NAME" != factorio server ] || [ -n "$FACTORIO_SERVER_DESCRIPTION" ] || [ -n "$FACTORIO_SERVER_MAX_PLAYERS" ] || [ "$FACTORIO_SERVER_VISIBILITY" != hidden ] || [ -n "$FACTORIO_USER_USERNAME" ] || [ -n "$FACTORIO_USER_PASSWORD" ] || [ -n "$FACTORIO_USER_TOKEN" ] || [ -n "$FACTORIO_SERVER_GAME_PASSWORD" ] || [ "$FACTORIO_SERVER_VERIFY_IDENTITY" != false ]
+then
+factorio_command="$factorio_command --server-settings /opt/factorio/server-settings.json"
 fi
 # Setting latency-ms option
 factorio_command="$factorio_command --latency-ms $FACTORIO_LATENCY_MS"
