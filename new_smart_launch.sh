@@ -10,14 +10,14 @@ echo '  \  \::/     \  \::/       \  \:\  /:/  \__\/  \:\   \  \:\  /:/   \  \::
 echo '   \  \:\      \  \:\        \  \:\/:/        \  \:\   \  \:\/:/     \  \:\          /__/:/    \  \:\/:/  '
 echo '    \  \:\      \  \:\        \  \::/          \__\/    \  \::/       \  \:\         \__\/      \  \::/   '
 echo '     \__\/       \__\/         \__\/                     \__\/         \__\/                     \__\/    '
-# Checking if server is ready 
-if [ $FACTORIO_WAITING == true ] 
-then 
-  until [ -f /opt/factorio/saves/ready ] 
-  do 
-    echo "# Waiting for backup daemon to be ready" 
-    sleep 1 
-  done 
+# Checking if server is ready
+if [ $FACTORIO_WAITING == true ]
+then
+  until [ -f /opt/factorio/saves/ready ]
+  do
+    echo "# Waiting for backup daemon to be ready"
+    sleep 1
+  done
 fi
 # Populate server-settings.json
 SERVER_SETTINGS=/opt/factorio/server-settings.json
@@ -60,12 +60,12 @@ fi
 # Setting allow-commands option
 factorio_command="$factorio_command --allow-commands $FACTORIO_ALLOW_COMMANDS"
 # Setting auto-pause option
-if [ "$FACTORIO_NO_AUTO_PAUSE" == true ] 
+if [ "$FACTORIO_NO_AUTO_PAUSE" == true ]
 then
 factorio_command="$factorio_command --no-auto-pause"
 fi
 # Include server-settings.json if one or more variables are populated
-if [ "$FACTORIO_SERVER_NAME" != factorio server ] || [ -n "$FACTORIO_SERVER_DESCRIPTION" ] || [ -n "$FACTORIO_SERVER_MAX_PLAYERS" ] || [ "$FACTORIO_SERVER_VISIBILITY" != hidden ] || [ -n "$FACTORIO_USER_USERNAME" ] || [ -n "$FACTORIO_USER_PASSWORD" ] || [ -n "$FACTORIO_USER_TOKEN" ] || [ -n "$FACTORIO_SERVER_GAME_PASSWORD" ] || [ "$FACTORIO_SERVER_VERIFY_IDENTITY" != false ]
+if [ "$FACTORIO_SERVER_NAME" != "factorio server" ] || [ -n "$FACTORIO_SERVER_DESCRIPTION" ] || [ -n "$FACTORIO_SERVER_MAX_PLAYERS" ] || [ "$FACTORIO_SERVER_VISIBILITY" != "hidden" ] || [ -n "$FACTORIO_USER_USERNAME" ] || [ -n "$FACTORIO_USER_PASSWORD" ] || [ -n "$FACTORIO_USER_TOKEN" ] || [ -n "$FACTORIO_SERVER_GAME_PASSWORD" ] || [ "$FACTORIO_SERVER_VERIFY_IDENTITY" != "false" ]
 then
 factorio_command="$factorio_command --server-settings /opt/factorio/server-settings.json"
 fi
