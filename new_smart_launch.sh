@@ -77,6 +77,19 @@ factorio_command="$factorio_command --autosave-interval $FACTORIO_AUTOSAVE_INTER
 factorio_command="$factorio_command --autosave-slots $FACTORIO_AUTOSAVE_SLOTS"
 # Setting rcon-port option
 factorio_command="$factorio_command --rcon-port 27015"
+# Show server-settings.json containings
+echo "###"
+echo "# server-settings.json config:"
+echo "# Server Name = '$FACTORIO_SERVER_NAME'"
+echo "# Server Description = '$FACTORIO_SERVER_DESCRIPTION'"
+echo "# Max Players = '$FACTORIO_SERVER_MAX_PLAYERS'"
+echo "# Server Visibility = '$FACTORIO_SERVER_VISIBILITY'"
+echo "# Factorio Username = '$FACTORIO_USER_USERNAME'"
+echo "# Factorio Password = '$FACTORIO_USER_PASSWORD'"
+echo "# Factorio User Token = '$FACTORIO_USER_TOKEN'"
+echo "# Server Password = '$FACTORIO_SERVER_GAME_PASSWORD'"
+echo "# Verify User Identify = '$FACTORIO_SERVER_VERIFY_IDENTITY'"
+echo "###"
 # Setting rcon password option
 if [ -z $FACTORIO_RCON_PASSWORD ]
 then
