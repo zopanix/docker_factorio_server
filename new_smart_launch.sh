@@ -77,7 +77,16 @@ factorio_command="$factorio_command --autosave-interval $FACTORIO_AUTOSAVE_INTER
 factorio_command="$factorio_command --autosave-slots $FACTORIO_AUTOSAVE_SLOTS"
 # Setting rcon-port option
 factorio_command="$factorio_command --rcon-port 27015"
-# Show server-settings.json containings
+# Setting rcon password option
+if [ -z $FACTORIO_RCON_PASSWORD ]
+then
+  FACTORIO_RCON_PASSWORD=$(cat /dev/urandom | tr -dc 'a-f0-9' | head -c16)
+  echo "###"
+  echo "# RCON password is '$FACTORIO_RCON_PASSWORD'"
+  echo "###"
+fi
+factorio_command="$factorio_command --rcon-password $FACTORIO_RCON_PASSWORD"
+# Show server-settings.json config
 echo "###"
 echo "# server-settings.json config:"
 echo "# Server Name = '$FACTORIO_SERVER_NAME'"
@@ -90,15 +99,6 @@ echo "# Factorio User Token = '$FACTORIO_USER_TOKEN'"
 echo "# Server Password = '$FACTORIO_SERVER_GAME_PASSWORD'"
 echo "# Verify User Identify = '$FACTORIO_SERVER_VERIFY_IDENTITY'"
 echo "###"
-# Setting rcon password option
-if [ -z $FACTORIO_RCON_PASSWORD ]
-then
-  FACTORIO_RCON_PASSWORD=$(cat /dev/urandom | tr -dc 'a-f0-9' | head -c16)
-  echo "###"
-  echo "# RCON password is '$FACTORIO_RCON_PASSWORD'"
-  echo "###"
-fi
-factorio_command="$factorio_command --rcon-password $FACTORIO_RCON_PASSWORD"
 # TODO Adding this because of bug, will need to be removed once bug in factorio is fixed
 cd /opt/factorio/saves
 # Handling save settings
