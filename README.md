@@ -115,7 +115,7 @@ docker run -d \
 ```
 
 #### Factorio Server Name
-Set Factorio Server Name
+Set Factorio Server Name (defaults to "Factorio Server")
 ```
 docker run -d \
   --env FACTORIO_SERVER_NAME=[NAME]
@@ -124,7 +124,7 @@ docker run -d \
 ```
 
 #### Factorio Server Description
-Set Factorio Server Description
+Set Factorio Server Description (if not specified, no description will be set)
 ```
 docker run -d \
   --env FACTORIO_SERVER_DESCRIPTION=[DESCRIPTION]
@@ -133,7 +133,7 @@ docker run -d \
 ```
 
 #### Factorio Server Max Players
-Set Factorio Server Max Players count
+Set Factorio Server Max Players count (if not specified, maximum players is set to 255)
 ```
 docker run -d \
   --env FACTORIO_SERVER_MAX_PLAYERS=[NUMBER]
@@ -142,7 +142,7 @@ docker run -d \
 ```
 
 #### Factorio Server Visibility
-Set Factorio Server Visibility, if set to public, factorio.com User Login and Password or Token are required
+Set Factorio Server Visibility (if set to public, factorio.com User Login and Password or Token are required)
 ```
 docker run -d \
   --env FACTORIO_SERVER_VISIBILITY=[hidden,lan,public]
@@ -162,16 +162,16 @@ docker run -d \
 ```
 
 #### Factorio Server Game Password
-Set Factorio Server Game Password
+Set Factorio Server Game Password (if not specified, no password will be set)
 ```
 docker run -d \
-  --env FACTORIO_SERVER_GAME_PASSWORD=[SERVER-PASSWORD]
+  --env FACTORIO_SERVER_GAME_PASSWORD=[GAME-PASSWORD]
   -p [PORT]:34197/udp \
   zopanix/factorio
 ```
 
 #### Factorio Server Verify User Identity
-Set Verify User Identity to true to require factorio.com account for user to login
+Set Verify User Identity to true to require factorio.com account for user to login (defaults to false)
 ```
 docker run -d \
   --env FACTORIO_SERVER_VERIFY_IDENTITY=[false,true]
