@@ -34,34 +34,40 @@ if [ "$FACTORIO_SERVER_NAME" ] \
 then
   factorio_command="$factorio_command --server-settings /opt/factorio/server-settings.json"
   # Set Server Name default value if not set by user param
-  if [ -z "$FACTORIO_SERVER_NAME" ]
+  if [ -z $FACTORIO_SERVER_NAME ]
   then
     FACTORIO_SERVER_NAME="Factorio Server"
   fi
   # Set Visibility default value if not set by user param
-  if [ -z "FACTORIO_SERVER_VISIBILITY" ]
+  if [ -z $FACTORIO_SERVER_VISIBILITY ]
   then
     FACTORIO_SERVER_VISIBILITY="hidden"
   fi
   # Set Verify User Identity default value if not set by user param
-  if [ -z "FACTORIO_SERVER_VERIFY_IDENTITY" ]
+  if [ -z $FACTORIO_SERVER_VERIFY_IDENTITY ]
   then
     FACTORIO_SERVER_VERIFY_IDENTITY="false"
   fi
   # Check for supplied credentials if visibility is set to public
-  if [ "FACTORIO_SERVER_VISIBILITY" == "public" ]
+  if [ "$FACTORIO_SERVER_VISIBILITY" == "public" ]
   then
-    if [ -z "FACTORIO_USER_USERNAME" ]
+    if [ -z $FACTORIO_USER_USERNAME ]
     then
-      echo "Server Visibility is set to public but no factorio.com Username is supplied!"
-      echo "Defaulting back to Server Visibility: hidden"
+      echo "###"
+      echo "#Server Visibility is set to public but no factorio.com Username is supplied!"
+      echo "#Defaulting back to Server Visibility: hidden"
+      echo "###"
+      FACTORIO_SERVER_VISIBILITY="hidden"
     fi
-    if [ "FACTORIO_USER_USERNAME" ]
+    if [ "$FACTORIO_USER_USERNAME" ]
     then
-      if [ -z "FACTORIO_USER_PASSWORD" ] && [ -z "FACTORIO_USER_TOKEN" ]
+      if [ -z $FACTORIO_USER_PASSWORD ] && [ -z $FACTORIO_USER_TOKEN ]
       then
-      echo "Server Visibility is set to public but no factorio.com Password or Token is supplied!"
-      echo "Defaulting back to Server Visibility: hidden"
+      echo "###"
+      echo "#Server Visibility is set to public but no factorio.com Password or Token is supplied!"
+      echo "#Defaulting back to Server Visibility: hidden"
+      echo "###"
+      FACTORIO_SERVER_VISIBILITY="hidden"
       fi
     fi
   fi
