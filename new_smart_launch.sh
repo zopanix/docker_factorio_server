@@ -10,14 +10,14 @@ echo '  \  \::/     \  \::/       \  \:\  /:/  \__\/  \:\   \  \:\  /:/   \  \::
 echo '   \  \:\      \  \:\        \  \:\/:/        \  \:\   \  \:\/:/     \  \:\          /__/:/    \  \:\/:/  '
 echo '    \  \:\      \  \:\        \  \::/          \__\/    \  \::/       \  \:\         \__\/      \  \::/   '
 echo '     \__\/       \__\/         \__\/                     \__\/         \__\/                     \__\/    '
-# Checking if server is ready
-if [ $FACTORIO_WAITING == true ]
-then
-  until [ -f /opt/factorio/saves/ready ]
-  do
-    echo "# Waiting for backup daemon to be ready"
-    sleep 1
-  done
+# Checking if server is ready 
+if [ $FACTORIO_WAITING == true ] 
+then 
+  until [ -f /opt/factorio/saves/ready ] 
+  do 
+    echo "# Waiting for backup daemon to be ready" 
+    sleep 1 
+  done 
 fi
 # Populate server-settings.json
 SERVER_SETTINGS=/opt/factorio/server-settings.json
@@ -60,7 +60,7 @@ fi
 # Setting allow-commands option
 factorio_command="$factorio_command --allow-commands $FACTORIO_ALLOW_COMMANDS"
 # Setting auto-pause option
-if [ "$FACTORIO_NO_AUTO_PAUSE" == true ]
+if [ "$FACTORIO_NO_AUTO_PAUSE" == true ] 
 then
 factorio_command="$factorio_command --no-auto-pause"
 fi
