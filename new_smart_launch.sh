@@ -46,6 +46,21 @@ then
   then
     FACTORIO_SERVER_VERIFY_IDENTITY="false"
   fi
+  # Check for supplied credentials if visibility is set to public
+  if [ "FACTORIO_SERVER_VISIBILITY" == "public"]
+  then
+    if [ -z "FACTORIO_USER_USERNAME" ]
+    then
+      echo "Server Visibility is set to public but no factorio.com Username is supplied!"
+      echo "Defaulting back to Server Visibility: hidden"
+    fi
+    if [ "FACTORIO_USER_USERNAME" ]
+    then
+      if [ -z "FACTORIO_USER_PASSWORD" ] && [ -z "FACTORIO_USER_TOKEN" ]
+      echo "Server Visibility is set to public but no factorio.com Password or Token is supplied!"
+      echo "Defaulting back to Server Visibility: hidden"
+    fi
+  fi
   # Populate server-settings.json
   SERVER_SETTINGS=/opt/factorio/server-settings.json
   cat << EOF > $SERVER_SETTINGS
