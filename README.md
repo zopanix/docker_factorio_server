@@ -199,6 +199,19 @@ docker run -d \
   zopanix/factorio
 ```
 
+#### authorization error
+If your container exits with the following error:
+```
+Info HttpSharedState.cpp:83: Status code: 401
+Info AuthServerConnector.cpp:40: Error in communication with auth server: code(401) message({
+  "message": "Username and password don't match",
+  "status": 401
+})
+Info AuthServerConnector.cpp:68: Auth server authorization error (Username and password don't match)
+Error Util.cpp:57: Unknown error
+```
+Check supplied Username and Password or Token for mistakes.
+
 #### Waiting for ready
 This is a beta feature which has nothing to do with factorio... leave it as it is for the moment. I'm working with some collegues on something new which should work very well and please a lot of people.
 
