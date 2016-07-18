@@ -19,10 +19,37 @@ then
     sleep 1 
   done 
 fi
-# Populate server-settings.json
-SERVER_SETTINGS=/opt/factorio/server-settings.json
-cat << EOF > $SERVER_SETTINGS
-{
+# Include server-settings.json if one or more variables are populated
+if [ "$FACTORIO_SERVER_NAME" ] \
+|| [ "$FACTORIO_SERVER_DESCRIPTION" ] \
+|| [ "$FACTORIO_SERVER_MAX_PLAYERS" ] \
+|| [ "$FACTORIO_SERVER_VISIBILITY" ] \
+|| [ "$FACTORIO_USER_USERNAME" ] \
+|| [ "$FACTORIO_USER_PASSWORD" ] \
+|| [ "$FACTORIO_USER_TOKEN" ] \
+|| [ "$FACTORIO_SERVER_GAME_PASSWORD" ] \
+|| [ "$FACTORIO_SERVER_VERIFY_IDENTITY" ]
+then
+  factorio_command="$factorio_command --server-settings /opt/factorio/server-settings.json"
+  # Set Server Name default value if not set by user param
+  if [ -z "$FACTORIO_SERVER_NAME" ]
+  then
+    FACTORIO_SERVER_NAME="Factorio Server"
+  fi
+  # Set Visibility default value if not set by user param
+  if [ -z "FACTORIO_SERVER_VISIBILITY" ]
+  then
+    FACTORIO_SERVER_VISIBILITY="hidden"
+  fi
+  # Set Verify User Identity default value if not set by user param
+  if [ -z "FACTORIO_SERVER_VERIFY_IDENTITY" ]
+  then
+    FACTORIO_SERVER_VERIFY_IDENTITY="false"
+  fi
+  # Populate server-settings.json
+  SERVER_SETTINGS=/opt/factorio/server-settings.json
+  cat << EOF > $SERVER_SETTINGS
+  {
   "name": "$FACTORIO_SERVER_NAME",
   "description": "$FACTORIO_SERVER_DESCRIPTION",
   "max_players": "$FACTORIO_SERVER_MAX_PLAYERS",
@@ -43,8 +70,9 @@ cat << EOF > $SERVER_SETTINGS
 
   "_comment_verify_user_identity": "When set to true, the server will only allow clients that have a valid Factorio.com account",
   "verify_user_identity": $FACTORIO_SERVER_VERIFY_IDENTITY
-}
-EOF
+  }
+  EOF
+fi
 # Setting initial command
 factorio_command="/opt/factorio/bin/x64/factorio"
 # Setting heavy mode option
@@ -64,19 +92,6 @@ if [ "$FACTORIO_NO_AUTO_PAUSE" == true ]
 then
 factorio_command="$factorio_command --no-auto-pause"
 fi
-# Include server-settings.json if one or more variables are populated
-if [ "$FACTORIO_SERVER_NAME" != "factorio server" ] \
-|| [ "$FACTORIO_SERVER_DESCRIPTION" ] \
-|| [ "$FACTORIO_SERVER_MAX_PLAYERS" ] \
-|| [ "$FACTORIO_SERVER_VISIBILITY" != "hidden" ] \
-|| [ "$FACTORIO_USER_USERNAME" ] \
-|| [ "$FACTORIO_USER_PASSWORD" ] \
-|| [ "$FACTORIO_USER_TOKEN" ] \
-|| [ "$FACTORIO_SERVER_GAME_PASSWORD" ] \
-|| [ "$FACTORIO_SERVER_VERIFY_IDENTITY" != "false" ]
-then
-factorio_command="$factorio_command --server-settings /opt/factorio/server-settings.json"
-fi
 # Setting latency-ms option
 factorio_command="$factorio_command --latency-ms $FACTORIO_LATENCY_MS"
 # Setting autosave-interval option
@@ -95,18 +110,21 @@ then
 fi
 factorio_command="$factorio_command --rcon-password $FACTORIO_RCON_PASSWORD"
 # Show server-settings.json config
-echo "###"
-echo "# Server Config:"
-echo "# Server Name = '$FACTORIO_SERVER_NAME'"
-echo "# Server Description = '$FACTORIO_SERVER_DESCRIPTION'"
-echo "# Server Password = '$FACTORIO_SERVER_GAME_PASSWORD'"
-echo "# Max Players = '$FACTORIO_SERVER_MAX_PLAYERS'"
-echo "# Server Visibility = '$FACTORIO_SERVER_VISIBILITY'"
-echo "# Verify User Identify = '$FACTORIO_SERVER_VERIFY_IDENTITY'"
-echo "# Factorio Username = '$FACTORIO_USER_USERNAME'"
-echo "# Factorio Password = '$FACTORIO_USER_PASSWORD'"
-echo "# Factorio User Token = '$FACTORIO_USER_TOKEN'"
-echo "###"
+if [ "SERVER_SETTINGS" ]
+then
+  echo "###"
+  echo "# Server Config:"
+  echo "# Server Name = '$FACTORIO_SERVER_NAME'"
+  echo "# Server Description = '$FACTORIO_SERVER_DESCRIPTION'"
+  echo "# Server Password = '$FACTORIO_SERVER_GAME_PASSWORD'"
+  echo "# Max Players = '$FACTORIO_SERVER_MAX_PLAYERS'"
+  echo "# Server Visibility = '$FACTORIO_SERVER_VISIBILITY'"
+  echo "# Verify User Identify = '$FACTORIO_SERVER_VERIFY_IDENTITY'"
+  echo "# Factorio Username = '$FACTORIO_USER_USERNAME'"
+  echo "# Factorio Password = '$FACTORIO_USER_PASSWORD'"
+  echo "# Factorio User Token = '$FACTORIO_USER_TOKEN'"
+  echo "###"
+fi
 # TODO Adding this because of bug, will need to be removed once bug in factorio is fixed
 cd /opt/factorio/saves
 # Handling save settings
