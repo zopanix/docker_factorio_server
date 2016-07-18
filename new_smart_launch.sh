@@ -66,7 +66,8 @@ then
       if [ -z $FACTORIO_USER_PASSWORD ]
       then
       echo "###"
-      echo "# Server Visibility is set to public but neither factorio.com Password or Token is supplied!"
+#      echo "# Server Visibility is set to public but neither factorio.com Password or Token is supplied!"
+      echo "# Server Visibility is set to public but neither factorio.com Password is supplied!"
       echo "# Append: --env FACTORIO_USER_PASSWORD=[PASSWORD]"
 #      echo "# or --env FACTORIO_USER_TOKEN=[TOKEN]"
       echo "# Defaulting back to Server Visibility: hidden"
