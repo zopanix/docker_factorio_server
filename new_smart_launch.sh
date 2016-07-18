@@ -19,6 +19,8 @@ then
     sleep 1 
   done 
 fi
+# Setting initial command
+factorio_command="/opt/factorio/bin/x64/factorio"
 # Include server-settings.json if one or more variables are populated
 if [ "$FACTORIO_SERVER_NAME" ] \
 || [ "$FACTORIO_SERVER_DESCRIPTION" ] \
@@ -90,8 +92,6 @@ cat << EOF > $SERVER_SETTINGS
 "verify_user_identity": $FACTORIO_SERVER_VERIFY_IDENTITY
 }
 EOF
-# Setting initial command
-factorio_command="/opt/factorio/bin/x64/factorio"
 # Setting heavy mode option
 if [ "$FACTORIO_MODE" == "heavy" ]
 then
