@@ -157,7 +157,7 @@ Set factorio.com User Login and Password required for public server visibility
 docker run -d \
   --env FACTORIO_USER_USERNAME=[USERNAME]
   --env FACTORIO_USER_PASSWORD=[PASSWORD]
-[//]: # (  --env FACTORIO_USER_TOKEN=[TOKEN])
+[comment]: <> (  --env FACTORIO_USER_TOKEN=[TOKEN])
   -p [PORT]:34197/udp \
   zopanix/factorio
 ```
