@@ -47,7 +47,7 @@ then
     FACTORIO_SERVER_VERIFY_IDENTITY="false"
   fi
   # Check for supplied credentials if visibility is set to public
-  if [ "FACTORIO_SERVER_VISIBILITY" == "public"]
+  if [ "FACTORIO_SERVER_VISIBILITY" == "public" ]
   then
     if [ -z "FACTORIO_USER_USERNAME" ]
     then
@@ -63,9 +63,10 @@ then
       fi
     fi
   fi
-  # Populate server-settings.json
-  SERVER_SETTINGS=/opt/factorio/server-settings.json
-  cat << EOF > $SERVER_SETTINGS
+fi
+# Populate server-settings.json
+SERVER_SETTINGS=/opt/factorio/server-settings.json
+cat << EOF > $SERVER_SETTINGS
 {
 "name": "$FACTORIO_SERVER_NAME",
 "description": "$FACTORIO_SERVER_DESCRIPTION",
@@ -89,7 +90,6 @@ then
 "verify_user_identity": $FACTORIO_SERVER_VERIFY_IDENTITY
 }
 EOF
-fi
 # Setting initial command
 factorio_command="/opt/factorio/bin/x64/factorio"
 # Setting heavy mode option
@@ -127,7 +127,15 @@ then
 fi
 factorio_command="$factorio_command --rcon-password $FACTORIO_RCON_PASSWORD"
 # Show server-settings.json config
-if [ "SERVER_SETTINGS" ]
+if [ "$FACTORIO_SERVER_NAME" ] \
+|| [ "$FACTORIO_SERVER_DESCRIPTION" ] \
+|| [ "$FACTORIO_SERVER_MAX_PLAYERS" ] \
+|| [ "$FACTORIO_SERVER_VISIBILITY" ] \
+|| [ "$FACTORIO_USER_USERNAME" ] \
+|| [ "$FACTORIO_USER_PASSWORD" ] \
+|| [ "$FACTORIO_USER_TOKEN" ] \
+|| [ "$FACTORIO_SERVER_GAME_PASSWORD" ] \
+|| [ "$FACTORIO_SERVER_VERIFY_IDENTITY" ]
 then
   echo "###"
   echo "# Server Config:"
