@@ -142,7 +142,8 @@ docker run -d \
 ```
 
 #### Factorio Server Visibility
-Set Factorio Server Visibility (if set to public, factorio.com User Login and Password or Token are required)
+[//]: # (Set Factorio Server Visibility (if set to public, factorio.com User Login and Password or Token are required))
+Set Factorio Server Visibility (if set to public, factorio.com User Login and Password are required)
 ```
 docker run -d \
   --env FACTORIO_SERVER_VISIBILITY=[hidden,lan,public]
