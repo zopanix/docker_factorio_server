@@ -22,13 +22,13 @@ fi
 # Setting initial command
 factorio_command="/opt/factorio/bin/x64/factorio"
 # Include server-settings.json if one or more variables are populated
+# removed FACTORIO_USER_TOKEN condition cause of bug (https://github.com/zopanix/docker_factorio_server/issues/23)
 if [ "$FACTORIO_SERVER_NAME" ] \
 || [ "$FACTORIO_SERVER_DESCRIPTION" ] \
 || [ "$FACTORIO_SERVER_MAX_PLAYERS" ] \
 || [ "$FACTORIO_SERVER_VISIBILITY" ] \
 || [ "$FACTORIO_USER_USERNAME" ] \
 || [ "$FACTORIO_USER_PASSWORD" ] \
-#|| [ "$FACTORIO_USER_TOKEN" ] \
 || [ "$FACTORIO_SERVER_GAME_PASSWORD" ] \
 || [ "$FACTORIO_SERVER_VERIFY_IDENTITY" ]
 then
@@ -138,13 +138,13 @@ then
 fi
 factorio_command="$factorio_command --rcon-password $FACTORIO_RCON_PASSWORD"
 # Show server-settings.json config
+# removed FACTORIO_USER_TOKEN condition cause of bug (https://github.com/zopanix/docker_factorio_server/issues/23)
 if [ "$FACTORIO_SERVER_NAME" ] \
 || [ "$FACTORIO_SERVER_DESCRIPTION" ] \
 || [ "$FACTORIO_SERVER_MAX_PLAYERS" ] \
 || [ "$FACTORIO_SERVER_VISIBILITY" ] \
 || [ "$FACTORIO_USER_USERNAME" ] \
 || [ "$FACTORIO_USER_PASSWORD" ] \
-#|| [ "$FACTORIO_USER_TOKEN" ] \
 || [ "$FACTORIO_SERVER_GAME_PASSWORD" ] \
 || [ "$FACTORIO_SERVER_VERIFY_IDENTITY" ]
 then
