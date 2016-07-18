@@ -96,16 +96,16 @@ fi
 factorio_command="$factorio_command --rcon-password $FACTORIO_RCON_PASSWORD"
 # Show server-settings.json config
 echo "###"
-echo "# server-settings.json config:"
+echo "# Server Config:"
 echo "# Server Name = '$FACTORIO_SERVER_NAME'"
 echo "# Server Description = '$FACTORIO_SERVER_DESCRIPTION'"
+echo "# Server Password = '$FACTORIO_SERVER_GAME_PASSWORD'"
 echo "# Max Players = '$FACTORIO_SERVER_MAX_PLAYERS'"
 echo "# Server Visibility = '$FACTORIO_SERVER_VISIBILITY'"
+echo "# Verify User Identify = '$FACTORIO_SERVER_VERIFY_IDENTITY'"
 echo "# Factorio Username = '$FACTORIO_USER_USERNAME'"
 echo "# Factorio Password = '$FACTORIO_USER_PASSWORD'"
 echo "# Factorio User Token = '$FACTORIO_USER_TOKEN'"
-echo "# Server Password = '$FACTORIO_SERVER_GAME_PASSWORD'"
-echo "# Verify User Identify = '$FACTORIO_SERVER_VERIFY_IDENTITY'"
 echo "###"
 # TODO Adding this because of bug, will need to be removed once bug in factorio is fixed
 cd /opt/factorio/saves
