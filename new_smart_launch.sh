@@ -57,8 +57,10 @@ then
     if [ "FACTORIO_USER_USERNAME" ]
     then
       if [ -z "FACTORIO_USER_PASSWORD" ] && [ -z "FACTORIO_USER_TOKEN" ]
+      then
       echo "Server Visibility is set to public but no factorio.com Password or Token is supplied!"
       echo "Defaulting back to Server Visibility: hidden"
+      fi
     fi
   fi
   # Populate server-settings.json
