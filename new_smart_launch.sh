@@ -28,7 +28,7 @@ if [ "$FACTORIO_SERVER_NAME" ] \
 || [ "$FACTORIO_SERVER_VISIBILITY" ] \
 || [ "$FACTORIO_USER_USERNAME" ] \
 || [ "$FACTORIO_USER_PASSWORD" ] \
-|| [ "$FACTORIO_USER_TOKEN" ] \
+#|| [ "$FACTORIO_USER_TOKEN" ] \
 || [ "$FACTORIO_SERVER_GAME_PASSWORD" ] \
 || [ "$FACTORIO_SERVER_VERIFY_IDENTITY" ]
 then
@@ -62,12 +62,13 @@ then
     fi
     if [ "$FACTORIO_USER_USERNAME" ]
     then
-      if [ -z $FACTORIO_USER_PASSWORD ] && [ -z $FACTORIO_USER_TOKEN ]
+#      if [ -z $FACTORIO_USER_PASSWORD ] && [ -z $FACTORIO_USER_TOKEN ]
+      if [ -z $FACTORIO_USER_PASSWORD ]
       then
       echo "###"
       echo "# Server Visibility is set to public but neither factorio.com Password or Token is supplied!"
       echo "# Append: --env FACTORIO_USER_PASSWORD=[PASSWORD]"
-      echo "# or --env FACTORIO_USER_TOKEN=[TOKEN]"
+#      echo "# or --env FACTORIO_USER_TOKEN=[TOKEN]"
       echo "# Defaulting back to Server Visibility: hidden"
       echo "###"
       FACTORIO_SERVER_VISIBILITY="hidden"
@@ -142,7 +143,7 @@ if [ "$FACTORIO_SERVER_NAME" ] \
 || [ "$FACTORIO_SERVER_VISIBILITY" ] \
 || [ "$FACTORIO_USER_USERNAME" ] \
 || [ "$FACTORIO_USER_PASSWORD" ] \
-|| [ "$FACTORIO_USER_TOKEN" ] \
+#|| [ "$FACTORIO_USER_TOKEN" ] \
 || [ "$FACTORIO_SERVER_GAME_PASSWORD" ] \
 || [ "$FACTORIO_SERVER_VERIFY_IDENTITY" ]
 then
@@ -156,7 +157,7 @@ then
   echo "# Verify User Identify = '$FACTORIO_SERVER_VERIFY_IDENTITY'"
   echo "# Factorio Username = '$FACTORIO_USER_USERNAME'"
   echo "# Factorio Password = '$FACTORIO_USER_PASSWORD'"
-  echo "# Factorio User Token = '$FACTORIO_USER_TOKEN'"
+#  echo "# Factorio User Token = '$FACTORIO_USER_TOKEN'"
   echo "###"
 fi
 # TODO Adding this because of bug, will need to be removed once bug in factorio is fixed
