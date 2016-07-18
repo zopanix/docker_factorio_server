@@ -36,7 +36,7 @@ then
   # Set Server Name default value if not set by user param
   if [ -z $FACTORIO_SERVER_NAME ]
   then
-    FACTORIO_SERVER_NAME="Factorio Server"
+    FACTORIO_SERVER_NAME="Factorio Server $VERSION"
   fi
   # Set Visibility default value if not set by user param
   if [ -z $FACTORIO_SERVER_VISIBILITY ]
