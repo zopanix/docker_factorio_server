@@ -17,7 +17,16 @@ ENV FACTORIO_AUTOSAVE_INTERVAL=2 \
     VERSION=0.13.9 \
     FACTORIO_SHA1=34f37abc728670f5763bf0ce90dfe422f0dc5497 \
     FACTORIO_WAITING=false \
-    FACTORIO_MODE=normal
+    FACTORIO_MODE=normal \
+    FACTORIO_SERVER_NAME= \
+    FACTORIO_SERVER_DESCRIPTION= \
+    FACTORIO_SERVER_MAX_PLAYERS= \
+    FACTORIO_SERVER_VISIBILITY= \
+    FACTORIO_USER_USERNAME= \
+    FACTORIO_USER_PASSWORD= \
+#    FACTORIO_USER_TOKEN= \
+    FACTORIO_SERVER_GAME_PASSWORD= \
+    FACTORIO_SERVER_VERIFY_IDENTITY=
 
 RUN apk --update add bash curl && \
     curl -sSL --cacert /opt/factorio.crt https://www.factorio.com/get-download/$VERSION/headless/linux64 -o /tmp/factorio_headless_x64_$VERSION.tar.gz && \
