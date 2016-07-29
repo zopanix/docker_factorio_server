@@ -7,7 +7,8 @@ WORKDIR /opt
 COPY ./new_smart_launch.sh /opt
 COPY ./factorio.crt /opt
 
-VOLUME /opt/factorio/saves /opt/factorio/mods
+VOLUME /opt/factorio/saves 
+VOLUME /opt/factorio/mods
 
 ENV FACTORIO_AUTOSAVE_INTERVAL=2 \
     FACTORIO_AUTOSAVE_SLOTS=3 \
