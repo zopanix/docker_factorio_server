@@ -4,9 +4,6 @@ MAINTAINER zopanix <zopanix@gmail.com>
 
 WORKDIR /opt
 
-VOLUME /opt/factorio/saves 
-VOLUME /opt/factorio/mods
-
 COPY ./new_smart_launch.sh /opt
 COPY ./factorio.crt /opt
 
@@ -35,6 +32,9 @@ RUN apk --update add bash curl && \
     tar xzf /tmp/factorio_headless_x64_$VERSION.tar.gz && \
     rm /tmp/factorio_headless_x64_$VERSION.tar.gz && \
     apk del curl
+
+VOLUME /opt/factorio/saves 
+VOLUME /opt/factorio/mods
 
 EXPOSE 34197/udp
 EXPOSE 27015/tcp
