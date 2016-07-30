@@ -7,6 +7,13 @@ WORKDIR /opt
 COPY ./new_smart_launch.sh /opt/
 COPY ./factorio.crt /opt/
 
+VOLUME /opt/factorio/saves /opt/factorio/mods
+
+EXPOSE 34197/udp
+EXPOSE 27015/tcp
+
+CMD ["./new_smart_launch.sh"]
+
 ENV FACTORIO_AUTOSAVE_INTERVAL=2 \
     FACTORIO_AUTOSAVE_SLOTS=3 \
     FACTORIO_ALLOW_COMMANDS=false \
@@ -33,10 +40,3 @@ RUN apk --update add bash curl && \
     rm /tmp/factorio_headless_x64_$VERSION.tar.gz && \
     apk del curl
 
-VOLUME /opt/factorio/saves 
-VOLUME /opt/factorio/mods
-
-EXPOSE 34197/udp
-EXPOSE 27015/tcp
-
-CMD ["./new_smart_launch.sh"]
