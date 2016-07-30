@@ -2,6 +2,8 @@ Factorio
 ===== 
 Factorio Server in docker
 
+[![Build Status](https://travis-ci.org/zopanix/docker_factorio_server.svg?branch=master)](https://travis-ci.org/zopanix/docker_factorio_server)
+
 Current Version
 -----
 0.13.10
