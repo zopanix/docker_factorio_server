@@ -4,10 +4,13 @@ before_install:
   # see https://docs.travis-ci.com/user/environment-variables/#Defining-Variables-in-Repository-Settings
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 script:
-  - docker build -t "zopanix/factorio:${TRAVIS_TAG}" .
+  - docker build -t "zopanix/factorio" .
 deploy:
   provider: script
-  script: docker push "zopanix/factorio:${TRAVIS_TAG}" && docker push "zopanix/factorio:latest"
+  script: docker tag "zopanix/factorio" "zopanix/factorio!${TRAVIS_TAG}" && docker push "zopanix/factorio:${TRAVIS_TAG}"
   skip_cleanup: false
   on:
     tags: true
+after_sucess:
+- docker tag "zopanix/factorio" "zopanix/factorio:latest"
+- docker push "zopanix/factorio"
