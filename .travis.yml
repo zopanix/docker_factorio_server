@@ -7,7 +7,7 @@ script:
   - docker build -t "zopanix/factorio:${TRAVIS_TAG}" .
 deploy:
   provider: script
-  script: docker push "zopanix/factorio:${TRAVIS_TAG}"
+  script: docker push "zopanix/factorio:${TRAVIS_TAG}" && docker push "zopanix/factorio:latest"
   skip_cleanup: false
   on:
     tags: true
