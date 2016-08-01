@@ -11,6 +11,7 @@ Current Version
 #### Factorio
 See [factorio's site](http://www.factorio.com)
 #### Docker image
+* New semver for version !!!Tags have changed now!!!
 * Automated build with travis 
 
 Versions
