@@ -2,7 +2,7 @@ Factorio
 ===== 
 Factorio Server in docker
 
-[![Build Status](https://travis-ci.org/zopanix/docker_factorio_server.svg?branch=master)](https://travis-ci.org/zopanix/docker_factorio_server) [![Docker Pulls](https://img.shields.io/docker/pulls/zopanix/docker_factorio_server.svg?maxAge=2592000)](https://hub.docker.com/r/zopanix/factorio/)
+[![Build Status](https://travis-ci.org/zopanix/docker_factorio_server.svg?branch=master)](https://travis-ci.org/zopanix/docker_factorio_server) [![Docker Pulls](https://img.shields.io/docker/pulls/zopanix/factorio.svg?maxAge=2592000)](https://hub.docker.com/r/zopanix/factorio/)
 
 ### What's new ?
 #### Factorio
