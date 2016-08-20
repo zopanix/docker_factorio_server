@@ -2,10 +2,10 @@ version: '2'
 services:
   game:
     build: .
-    #image: zopanix/factorio:v0.13.13-experimental
+    #image: zopanix/factorio:v0.13.16-experimental
     volumes:
-      - ./saves:/opt/factorio/saves
-      - ./mods:/opt/factorio/mods
+      - ${FACTORIO_SAVES_DIR}:/opt/factorio/saves:Z
+      - ${FACTORIO_MODS_DIR}:/opt/factorio/mods:Z
     ports:
       - "34197:34197/udp"
     environment:

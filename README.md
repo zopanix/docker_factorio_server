@@ -233,6 +233,16 @@ changing the tag to whatever you want to install.
 
 This way docker will automatically pull the image from the Docker Hub with the version you specified without the need for any build.
 
+The saves directory and the mods directory must be specified either in the environment before running `docker-compose up -d`:
+
+`
+export FACTORIO_SAVES_DIR=./save
+export FACTORIO_MODS_DIR=./mods
+docker-compose up -d 
+`
+
+Or, just copy the env.sample to .env and modify as appropriate.
+
 #### Waiting for ready
 This is a beta feature which has nothing to do with factorio... leave it as it is for the moment. I'm working with some collegues on something new which should work very well and please a lot of people.
 
