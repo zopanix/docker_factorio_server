@@ -4,9 +4,10 @@ Factorio Server in docker
 
 [![Build Status](https://travis-ci.org/zopanix/docker_factorio_server.svg?branch=master)](https://travis-ci.org/zopanix/docker_factorio_server)
 
-Current Version
+Versions
 -----
-0.13.13
+Please checkout the different [tags](https://hub.docker.com/r/zopanix/factorio/tags/)
+
 ### What's new ?
 #### Factorio
 See [factorio's site](http://www.factorio.com)
@@ -14,9 +15,6 @@ See [factorio's site](http://www.factorio.com)
 * New semver for version !!!Tags have changed now!!!
 * Automated build with travis 
 
-Versions
------
-I'm keeping the image up to date. If you need to use an older version, checkout out the different [tags](https://hub.docker.com/r/zopanix/factorio/tags/).
 
 How to use ?
 -----
