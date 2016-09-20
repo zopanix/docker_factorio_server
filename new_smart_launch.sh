@@ -120,8 +120,6 @@ if [ "$FACTORIO_NO_AUTO_PAUSE" == true ]
 then
 factorio_command="$factorio_command --no-auto-pause"
 fi
-# Setting latency-ms option
-factorio_command="$factorio_command --latency-ms $FACTORIO_LATENCY_MS"
 # Setting autosave-interval option
 factorio_command="$factorio_command --autosave-interval $FACTORIO_AUTOSAVE_INTERVAL"
 # Setting autosave-slots option
