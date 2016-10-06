@@ -9,14 +9,7 @@ services:
     ports:
       - "34197:34197/udp"
     environment:
-      - FACTORIO_AUTOSAVE_INTERVAL=10
-      - FACTORIO_AUTOSAVE_SLOTS=15
-      - FACTORIO_ALLOW_COMMANDS=false
-      - FACTORIO_NO_AUTO_PAUSE=false
     networks:
       - factorio_net
     restart: always
 
-networks:
-  factorio_net:
-    driver: bridge
