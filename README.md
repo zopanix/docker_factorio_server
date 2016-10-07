@@ -4,8 +4,12 @@ Factorio Server in docker
 
 Versions
 -----
+<<<<<<< HEAD
 Please checkout the different [tags](https://hub.docker.com/r/zopanix/factorio/tags/)
 
+=======
+0.13.16
+>>>>>>> a44ab07ddb4347e874405f792ff2f90659110e46
 ### What's new ?
 #### Factorio
 See [factorio's site](http://www.factorio.com)
