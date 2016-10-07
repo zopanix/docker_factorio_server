@@ -1,0 +1,17 @@
+version: '2'
+services:
+  game:
+    build: .
+    #image: zopanix/factorio:TAG
+    volumes:
+      - ./saves:/opt/factorio/saves
+      - ./mods:/opt/factorio/mods
+    ports:
+      - "34197:34197/udp"
+    environment:
+      - ${FACTORIO_SAVES_DIR}:/opt/factorio/saves:Z
+      - ${FACTORIO_MODS_DIR}:/opt/factorio/mods:Z
+    ports:
+      - "34197:34197/udp"
+    restart: always
+
