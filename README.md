@@ -227,7 +227,7 @@ Also if you want to setup your game server via docker-compose without having to 
 
 and uncomment the line:
 
-`#image: zopanix/factorio:v0.13.13-experimental`
+`#image: zopanix/factorio:TAG`
 
 changing the tag to whatever you want to install.
 

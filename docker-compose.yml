@@ -2,7 +2,7 @@ version: '2'
 services:
   game:
     build: .
-    #image: zopanix/factorio:v0.13.16-experimental
+    #image: zopanix/factorio:TAG
     volumes:
       - ${FACTORIO_SAVES_DIR}:/opt/factorio/saves:Z
       - ${FACTORIO_MODS_DIR}:/opt/factorio/mods:Z
