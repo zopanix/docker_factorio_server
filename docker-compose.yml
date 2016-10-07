@@ -9,7 +9,9 @@ services:
     ports:
       - "34197:34197/udp"
     environment:
-    networks:
-      - factorio_net
+      - ${FACTORIO_SAVES_DIR}:/opt/factorio/saves:Z
+      - ${FACTORIO_MODS_DIR}:/opt/factorio/mods:Z
+    ports:
+      - "34197:34197/udp"
     restart: always
 
