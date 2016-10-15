@@ -100,7 +100,7 @@ cat << EOF > $SERVER_SETTINGS
 "game_password": "$FACTORIO_SERVER_GAME_PASSWORD",
 
 "_comment_verify_user_identity": "When set to true, the server will only allow clients that have a valid Factorio.com account",
-"verify_user_identity": $FACTORIO_SERVER_VERIFY_IDENTITY
+"verify_user_identity": "$FACTORIO_SERVER_VERIFY_IDENTITY"
 }
 EOF
 # Setting heavy mode option
