@@ -187,6 +187,10 @@ then
   fi
   factorio_command="$factorio_command --start-server-load-latest"
 else
+  if [ ! -f $save_dir/$FACTORIO_SAVE ]
+  then
+    /opt/factorio/bin/x64/factorio --create $save_dir/$FACTORIO_SAVE
+  fi
   factorio_command="$factorio_command --start-server $FACTORIO_SAVE"
 fi
 echo "###"
