@@ -189,6 +189,9 @@ then
 else
   if [ ! -f $save_dir/$FACTORIO_SAVE ]
   then
+    echo "###"
+    echo "# Creating a new map [$FACTORIO_SAVE]"
+    echo "###"
     /opt/factorio/bin/x64/factorio --create $save_dir/$FACTORIO_SAVE
   fi
   factorio_command="$factorio_command --start-server $FACTORIO_SAVE"
