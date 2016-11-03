@@ -39,9 +39,13 @@ then
     FACTORIO_SERVER_NAME="Factorio Server $VERSION"
   fi
   # Set Visibility default value if not set by user param
-  if [ -z $FACTORIO_SERVER_VISIBILITY ]
+  if [ -z $FACTORIO_SERVER_PUBLIC ]
   then
-    FACTORIO_SERVER_VISIBILITY="hidden"
+    FACTORIO_SERVER_PUBLIC="false"
+  fi
+  if [ -z $FACTORIO_SERVER_LAN ]
+  then
+    FACTORIO_SERVER_LAN="false"
   fi
   # Set Verify User Identity default value if not set by user param
   if [ -z $FACTORIO_SERVER_VERIFY_IDENTITY ]
@@ -49,7 +53,7 @@ then
     FACTORIO_SERVER_VERIFY_IDENTITY="false"
   fi
   # Check for supplied credentials if visibility is set to public
-  if [ "$FACTORIO_SERVER_VISIBILITY" == "public" ]
+  if [ "$FACTORIO_SERVER_PUBLIC" == "true" ]
   then
     if [ -z $FACTORIO_USER_USERNAME ]
     then
@@ -58,7 +62,7 @@ then
       echo "# Append: --env FACTORIO_USER_USERNAME=[USERNAME]"
       echo "# Defaulting back to Server Visibility: hidden"
       echo "###"
-      FACTORIO_SERVER_VISIBILITY="hidden"
+      FACTORIO_SERVER_PUBLIC="false"
     fi
     if [ "$FACTORIO_USER_USERNAME" ]
     then
@@ -72,7 +76,7 @@ then
 #      echo "# or --env FACTORIO_USER_TOKEN=[TOKEN]"
       echo "# Defaulting back to Server Visibility: hidden"
       echo "###"
-      FACTORIO_SERVER_VISIBILITY="hidden"
+      FACTORIO_SERVER_PUBLIC="false"
       fi
     fi
   fi
@@ -88,7 +92,10 @@ cat << EOF > $SERVER_SETTINGS
 "_comment_visibility": ["public: Game will be published on the official Factorio matching server",
                         "lan: Game will be broadcast on LAN",
                         "hidden: Game will not be published anywhere"],
-"visibility": "$FACTORIO_SERVER_VISIBILITY",
+"visibility": {
+	"public": "$FACTORIO_SERVER_PUBLIC",
+	"lan": "$FACTORIO_SERVER_LAN"
+},
 
 "_comment_credentials": "Your factorio.com login credentials. Required for games with visibility public",
 "username": "$FACTORIO_USER_USERNAME",
@@ -99,6 +106,11 @@ cat << EOF > $SERVER_SETTINGS
 
 "game_password": "$FACTORIO_SERVER_GAME_PASSWORD",
 
+"allow_commands": "$FACTORIO_ALLOW_COMMANDS",
+"autosave_interval": "$FACTORIO_AUTOSAVE_INTERVAL",
+"autosave_slots": "$FACTORIO_AUTOSAVE_SLOTS",
+"auto_pause": "$FACTORIO_AUTO_PAUSE",
+"afk_autokick_interval": "$FACTORIO_AFK_AUTOKICK_INTERVAL",
 "_comment_verify_user_identity": "When set to true, the server will only allow clients that have a valid Factorio.com account",
 "verify_user_identity": $FACTORIO_SERVER_VERIFY_IDENTITY
 }
@@ -113,17 +125,6 @@ if [ "$FACTORIO_MODE" == "complete" ]
 then
 factorio_command="$factorio_command --complete"
 fi
-# Setting allow-commands option
-factorio_command="$factorio_command --allow-commands $FACTORIO_ALLOW_COMMANDS"
-# Setting auto-pause option
-if [ "$FACTORIO_NO_AUTO_PAUSE" == true ] 
-then
-factorio_command="$factorio_command --no-auto-pause"
-fi
-# Setting autosave-interval option
-factorio_command="$factorio_command --autosave-interval $FACTORIO_AUTOSAVE_INTERVAL"
-# Setting autosave-slots option
-factorio_command="$factorio_command --autosave-slots $FACTORIO_AUTOSAVE_SLOTS"
 # Setting rcon-port option
 factorio_command="$factorio_command --rcon-port 27015"
 # Setting rcon password option
