@@ -1,5 +1,5 @@
 Factorio [![Build Status](https://travis-ci.org/zopanix/docker_factorio_server.svg?branch=master)](https://travis-ci.org/zopanix/docker_factorio_server)  [![Docker Pulls](https://img.shields.io/docker/pulls/zopanix/factorio.svg?maxAge=2592000)](https://hub.docker.com/r/zopanix/factorio/)
-===== 
+=====
 Factorio Server in docker
 
 Versions
@@ -11,7 +11,7 @@ Please checkout the different [tags](https://hub.docker.com/r/zopanix/factorio/t
 See [factorio's site](http://www.factorio.com)
 #### Docker image
 * New semver for version !!!Tags have changed now!!!
-* Automated build with travis 
+* Automated build with travis
 
 
 How to use ?
@@ -55,7 +55,7 @@ docker run -d \
   -p [PORT]:34197/udp  \
   zopanix/factorio
 ```
-Where [NUMBER] is the number of minutes between autosaves. 
+Where [NUMBER] is the number of minutes between autosaves.
 
 #### Autosave slots
 You can set the number of autosave slots. By default it is set at 3 slots bud you can change it by launching the container with the "FACTORIO_AUTOSAVE_SLOTS" variable to whatever suits you best.
@@ -145,7 +145,8 @@ docker run -d \
 Set Factorio Server Visibility (if set to public, factorio.com User Login and Password are required)
 ```
 docker run -d \
-  --env FACTORIO_SERVER_VISIBILITY=[hidden,lan,public]
+  --env FACTORIO_SERVER_PUBLIC=[true, false]
+  --env FACTORIO_SERVER_LAN=[true, false]
   -p [PORT]:34197/udp \
   zopanix/factorio
 ```
