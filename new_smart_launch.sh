@@ -118,8 +118,6 @@ if [ "$FACTORIO_NO_AUTO_PAUSE" == true ]
 then
 factorio_command="$factorio_command --no-auto-pause"
 fi
-# Setting autosave-slots option
-factorio_command="$factorio_command --autosave-slots $FACTORIO_AUTOSAVE_SLOTS"
 # Setting rcon-port option
 factorio_command="$factorio_command --rcon-port 27015"
 # Setting rcon password option
