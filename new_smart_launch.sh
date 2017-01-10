@@ -113,8 +113,6 @@ if [ "$FACTORIO_MODE" == "complete" ]
 then
 factorio_command="$factorio_command --complete"
 fi
-# Setting allow-commands option
-factorio_command="$factorio_command --allow-commands $FACTORIO_ALLOW_COMMANDS"
 # Setting auto-pause option
 if [ "$FACTORIO_NO_AUTO_PAUSE" == true ] 
 then
